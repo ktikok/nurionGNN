@@ -1,0 +1,1 @@
+python hepgnn_4top_resampling/train_4top_QCD_cla_resam.py --config config_4top_QCD_w1.yaml --epoch 200 --batch 1024 -o ./output/train20220712_4top_cla_alledge_w1_L1 --cla 1 --model GNN1layer --fea 4 --lr 1e-3 --weight 4

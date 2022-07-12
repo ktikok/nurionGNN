@@ -1,14 +1,17 @@
 #!/usr/bin/env python
+
 import numpy as np
 import torch
 import h5py
 import torch.nn as nn
 import torch.nn.functional as F
-import torch_geometric.nn as PyG
-from torch_geometric.transforms import Distance
+
+# import torch_geometric.nn as PyG # not use
+# from torch_geometric.transforms import Distance # not use
+# from torch_geometric.data import Data as PyGData # not use
+# from torch_geometric.data import Data # not use
 from torch_geometric.data import DataLoader
-from torch_geometric.data import Data as PyGData
-from torch_geometric.data import Data
+
 import sys, os
 import subprocess
 import csv, yaml
@@ -64,6 +67,8 @@ if not os.path.exists('result/' + args.output): os.makedirs('result/' + args.out
 
 
 ##### Define dataset instance #####
+print('##### Define dataset instance #####')
+
 if args.weight == 1:
     from dataset.HEPGNNDataset_pt_classify_fourfeature_abs import *
     dset = HEPGNNDataset_pt_classify_fourfeature_abs()
@@ -98,6 +103,7 @@ valLoader = DataLoader(valDset, batch_size=args.batch, shuffle=False, **kwargs)
 torch.manual_seed(torch.initial_seed())
 
 ##### Define model instance #####
+print('##### Define model instance #####')
 exec('model = '+args.model+'(fea=args.fea, cla=args.cla)')
 torch.save(model, os.path.join('result/' + args.output, 'model.pth'))
 
@@ -107,6 +113,8 @@ if args.device >= 0 and torch.cuda.is_available():
     device = 'cuda'
 
 ##### Define optimizer instance #####
+print('##### Define optimizer instance #####')
+
 optm = optim.Adam(model.parameters(), lr=config['training']['learningRate'])
 
 
@@ -114,6 +122,8 @@ optm = optim.Adam(model.parameters(), lr=config['training']['learningRate'])
 
 
 ##### Start training #####
+print('##### Start training #####')
+
 with open('result/' + args.output+'/summary.txt', 'w') as fout:
     fout.write(str(args))
     fout.write('\n\n')
