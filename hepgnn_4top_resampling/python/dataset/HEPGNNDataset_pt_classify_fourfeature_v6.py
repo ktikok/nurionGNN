@@ -136,7 +136,7 @@ class HEPGNNDataset_pt_classify_fourfeature_v6(PyGDataset):
             btag_list = []
             
             for j in range(nEvent):
-                btag_list.append(f[j].x[:,4][0])
+                btag_list.append(f[j].x[:,4][0]) # error occures
                 if f[j].y == 0:
                     weights = f[j].x[:,6][0]/np.abs(f[j].x[:,6][0]) 
                 else:
