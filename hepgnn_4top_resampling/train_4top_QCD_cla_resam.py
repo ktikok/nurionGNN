@@ -6,10 +6,10 @@ import h5py
 import torch.nn as nn
 import torch.nn.functional as F
 
-# import torch_geometric.nn as PyG # not use
-# from torch_geometric.transforms import Distance # not use
-# from torch_geometric.data import Data as PyGData # not use
-# from torch_geometric.data import Data # not use
+import torch_geometric.nn as PyG # not use
+from torch_geometric.transforms import Distance # not use
+from torch_geometric.data import Data as PyGData # not use
+from torch_geometric.data import Data # not use
 from torch_geometric.data import DataLoader
 
 import sys, os
