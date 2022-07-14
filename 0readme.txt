@@ -70,3 +70,5 @@ pip install torch-geometric
 conda create --prefix /home01/hpc22a06/miniconda3/envs/py3.7
 conda activate py3.7
 # cannot install pytorch by pip. So, I used conda. and same problem with torch-~~
+
+sdafdfsjklgfsdahfs bㅠㅠ
