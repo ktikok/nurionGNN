@@ -108,8 +108,11 @@ class HEPGNNDataset_pt_classify_fourfeature_v6(PyGDataset):
         for i, fName in enumerate(self.sampleInfo['fileName']):
 #             print("Loading files... (%d/%d) %s" % (i+1,nFiles,fName), end='\r')
 #             f = h5py.File(fName, 'r', libver='latest', swmr=True)['group']
+            print('file name:',fName)
             f = torch.load(fName)
-            
+            print('type of f : ', type(f))
+            print('f : ', f)
+
 #             nEvent = len(f['pos'].get('pos'))
             nEvent = len(f)
              

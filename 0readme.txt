@@ -36,6 +36,7 @@ conda install pyg -c pyg -y
 conda create --prefix -n py39 python=3.9 -y
 conda activate py39
 conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cpuonly -c pytorch -y ; conda install pyg -c pyg -y
+# pyg=2.0.4
 
 https://github.com/conda/conda/issues/5551
 package cache problem
@@ -71,4 +72,8 @@ conda create --prefix /home01/hpc22a06/miniconda3/envs/py3.7
 conda activate py3.7
 # cannot install pytorch by pip. So, I used conda. and same problem with torch-~~
 
-sdafdfsjklgfsdahfs bㅠㅠ
+conda create --prefix /home01/hpc22a06/miniconda3/envs/py37 python=3.7
+conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cpuonly -c pytorch
+conda install -c conda-forge pytorch_geometric=1.6
+
+

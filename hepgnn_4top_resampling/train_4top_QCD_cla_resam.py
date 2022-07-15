@@ -89,8 +89,9 @@ for sampleInfo in config['samples']:
     if 'ignore' in sampleInfo and sampleInfo['ignore']: continue
     name = sampleInfo['name']
     dset.addSample(name, sampleInfo['path'], weight=sampleInfo['xsec']/sampleInfo['ngen'])
+    # it prints name and path.
     dset.setProcessLabel(name, sampleInfo['label'])
-dset.initialize()
+dset.initialize() # here is an error
 
 lengths = [int(x*len(dset)) for x in config['training']['splitFractions']]
 lengths.append(len(dset)-sum(lengths))
