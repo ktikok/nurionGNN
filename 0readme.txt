@@ -57,15 +57,15 @@ RuntimeError: The 'data' object was created by an older version of PyG. If this 
 conda create --prefix /home01/hpc22a06/miniconda3/envs/pyg16
 conda activate pyg16
 conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cpuonly -c pytorch
-pip install torch-geometric
-pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+#pip install torch-geometric
+#pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+cpu.html
 # error
 # Your compiler (g++ 4.8.5) may be ABI-incompatible with PyTorch!
 #       Please use a compiler that is ABI-compatible with GCC 5.0 and above.
-pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
-pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
-pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+#pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+#pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+#pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
 pip install torch-geometric
 
 conda create --prefix /home01/hpc22a06/miniconda3/envs/py3.7
@@ -75,5 +75,18 @@ conda activate py3.7
 conda create --prefix /home01/hpc22a06/miniconda3/envs/py37 python=3.7
 conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cpuonly -c pytorch
 conda install -c conda-forge pytorch_geometric=1.6
+# pyg=1.6.1, can read tensor.pt but not 1.6.3 data file. It's different error.
 
+conda create --name py37pip_pytorch python=3.7
+conda activate py37pip_pytorch
+pip install torch==1.7.1+cpu torchvision==0.8.2+cpu torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.1+cpu.html
+# here is an error, gcc version4.8.5..
+#pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+#pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+#pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+#pip install torch-geometric
+conda install gcc_linux-64
+conda install gxx_linux-64
+conda install gfortran_linux-64
 
